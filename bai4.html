@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .menu {
+            display: flex;
+            justify-content: space-around;
+            background-color: cyan;
+            padding: 10px;
+            margin: 0;
+        }
+        .menu a {
+            text-decoration: none;
+            color: blue;
+            padding: 10px 20px;
+            background-color: transparent;
+            transition: background-color 0.3s;
+        }
+        .menu a:hover {
+            background-color: blue;
+            color: white;
+        }
+        .menu a.active {
+            background-color: blue;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <a href="#home" id="home">Trang chủ</a>
+        <a href="#about" id="about">Giới thiệu</a>
+        <a href="#map" id="map">Bản đồ</a>
+        <a href="#contact" id="contact">Liên hệ</a>
+        <a href="#products" id="products">Sản phẩm</a>
+    </div>
+
+    <script>
+        // Lấy tất cả các mục trong menu
+        const menuItems = document.querySelectorAll('.menu a');
+
+        // Thêm sự kiện 'click' cho từng mục
+        menuItems.forEach(item => {
+            item.addEventListener('click', function() {
+                // Loại bỏ lớp "active" khỏi tất cả các mục
+                menuItems.forEach(menu => menu.classList.remove('active'));
+
+                // Thêm lớp "active" vào mục được nhấp
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
